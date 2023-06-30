@@ -1,0 +1,25 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 2rem;
+  margin-bottom: 1rem;
+  background-color: rgb(48, 48, 48);
+}
+
+.nav {
+  display: flex;
+  gap: 1rem;
+}
+.nav a {
+  color: rgb(255, 255, 255);
+  transition: 0.1s ease-in-out;
+}
+
+.nav .active {
+  color: tomato;
+}
+
+.section {
+  padding: 1rem;
+}
