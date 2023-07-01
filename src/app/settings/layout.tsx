@@ -1,7 +1,5 @@
 'use client';
-
-import Link from 'next/link';
-import SettingsCategory from './(common)/category';
+import SettingsCategory from '@/app/settings/(common)/category';
 
 export default function RootLayout({
   children,
