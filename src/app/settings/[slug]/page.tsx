@@ -4,6 +4,7 @@ interface SettingProps {
   };
 }
 
+// TODO: 서버 파일에 있는 데이터 중 해당 페이지의 정보를 찾아서 그걸 보여줄 예정
 export default function SettingDetail({ params }: SettingProps) {
   return <h1>내정보 - {params.slug} 페이지</h1>;
 }
@@ -15,6 +16,7 @@ export function generateMetadata({ params }: SettingProps) {
   };
 }
 
+// TODO: 모든 설정의 페이지들을 미리 만들어 둘 수 있게 해줄 예정 (SSG)
 // 동적 라우팅에서 특정한 path만 static 하게 해주는 generateStaticParams()
 export function generateStaticParams() {
   const setting = ['account', 'setting'];
