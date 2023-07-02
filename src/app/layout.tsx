@@ -1,11 +1,14 @@
-import Navigation from '@/app/(layout)/navigation';
 import styles from '@/app/layout.module.css';
 import './globals.css';
-
+import { Inter } from 'next/font/google';
 import { Metadata } from 'next';
 import { META } from '../constants/seo';
+import Navigation from '@/components/(layout)/Navigation';
+
+const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('http://localhost:3000'),
   title: {
     default: META.TITLE,
     template: `%s | ${META.TITLE}`,
@@ -46,8 +49,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body>
+    <html lang="ko">
+      <body className={inter.className}>
         <header className={styles.header}>
           <h1>레이아웃 데모</h1>
           <Navigation />
