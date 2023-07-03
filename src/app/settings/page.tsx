@@ -1,6 +1,8 @@
 import { getSettingMenus } from '@/service/settingMenu';
 import Link from 'next/link';
 
+export const revalidate = 3; // revalidate this page every 3 seconds
+
 export default async function SettingHome() {
   const settings = await getSettingMenus();
 

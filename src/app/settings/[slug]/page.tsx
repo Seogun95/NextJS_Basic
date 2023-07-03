@@ -7,6 +7,8 @@ interface SettingProps {
   };
 }
 
+export const revalidate = 3; // revalidate this page every 3 seconds
+
 // TODO: 서버 파일에 있는 데이터 중 해당 페이지의 정보를 찾아서 보여줌
 export default async function SettingDetail({
   params: { slug },
