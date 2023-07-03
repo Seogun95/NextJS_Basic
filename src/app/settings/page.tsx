@@ -1,18 +1,18 @@
-import { ROUT } from '@/constants/routes';
+import { getSettingMenus } from '@/service/settingMenu';
 import Link from 'next/link';
 
-export default function SettingHome() {
+export default async function SettingHome() {
+  const settings = await getSettingMenus();
+
   return (
     <>
       <h1>설정</h1>
       <ul>
-        {Object.entries(ROUT.SETTINGS)
-          .map(([KEY, VALUE]) => (
-            <li key={KEY}>
-              <Link href={VALUE}>{KEY.toLowerCase()}</Link>
-            </li>
-          ))
-          .slice(1)}
+        {settings.map(({ id, menu_kr }) => (
+          <li key={id}>
+            <Link href={`/settings/${id}`}>{menu_kr}</Link>
+          </li>
+        ))}
       </ul>
     </>
   );

@@ -1,33 +1,39 @@
 import NotFound from '@/app/not-found';
 import { getSettingMenu, getSettingMenus } from '@/service/settingMenu';
-
+import { Metadata } from 'next';
 interface SettingProps {
   params: {
     slug: string;
   };
 }
 
-// TODO: 서버 파일에 있는 데이터 중 해당 페이지의 정보를 찾아서 그걸 보여줄 예정
-export default function SettingDetail({ params: { slug } }: SettingProps) {
-  const settingMenu = getSettingMenu(slug);
+// TODO: 서버 파일에 있는 데이터 중 해당 페이지의 정보를 찾아서 보여줌
+export default async function SettingDetail({
+  params: { slug },
+}: SettingProps) {
+  const settingMenu = await getSettingMenu(slug);
 
   if (!settingMenu) {
     return <NotFound />;
   }
-
-  return <h1>내정보 - {settingMenu} 페이지</h1>;
+  return <h1>내정보 - {settingMenu.menu_kr} 페이지</h1>;
 }
 
+// TODO: 메타데이터 동적 라우트 설정
 // 동적으로 MetaData 설정 해주는 generateMetadata()
-export function generateMetadata({ params: { slug } }: SettingProps) {
+export const generateMetadata = async ({
+  params: { slug },
+}: SettingProps): Promise<Metadata> => {
+  const settings = await getSettingMenu(slug);
   return {
-    title: `${slug}`,
+    title: `${settings?.menu_kr} | 서근`,
+    description: `${settings?.menu_kr} 페이지 입니다.`,
   };
-}
+};
 
-// TODO: 모든 설정의 페이지들을 미리 만들어 둘 수 있게 해줄 예정 (SSG)
+// TODO: 모든 설정의 페이지들을 미리 만들어 렌더링 (SSG)
 // 동적 라우팅에서 특정한 path만 static 하게 해주는 generateStaticParams()
-export function generateStaticParams() {
-  const settingMenu = getSettingMenus();
-  return settingMenu.map(item => ({ slug: item }));
-}
+export const generateStaticParams = async () => {
+  const settings = await getSettingMenus();
+  return settings.map(item => ({ slug: item.id }));
+};
