@@ -1,0 +1,7 @@
+.category__container {
+  display: flex;
+  gap: 1rem;
+  border: 1px solid tomato;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
