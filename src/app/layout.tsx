@@ -1,11 +1,23 @@
 import styles from '@/app/layout.module.css';
 import './globals.css';
-import { Inter } from 'next/font/google';
+import { Nanum_Gothic, Open_Sans } from 'next/font/google';
 import { Metadata } from 'next';
 import { META } from '../constants/seo';
 import Navigation from '@/components/(layout)/Navigation';
+import localFont from 'next/font/local';
 
-const inter = Inter({ subsets: ['latin'] });
+//sans는 variable fonts이기때문에 font-weight 설정 필요 없음
+const sans = Open_Sans({ subsets: ['latin'] });
+//나눔고딕은 variable fonts가 아니기때문에 font-weight 설정 필요
+const gothic = Nanum_Gothic({
+  weight: '700',
+  subsets: ['latin'],
+});
+
+const myFont = localFont({
+  src: './fonts/Maplestory-Light.woff2',
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL('http://localhost:3000'),
@@ -49,10 +61,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ko">
-      <body className={inter.className}>
+    <html lang="ko" className={myFont.className}>
+      <body>
         <header className={styles.header}>
-          <h1>레이아웃 데모</h1>
+          <h1 className={gothic.className}>레이아웃 데모</h1>
           <Navigation />
         </header>
         <section className={styles.section}>{children}</section>

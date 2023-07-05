@@ -24,7 +24,6 @@ export default async function SettingDetail({
   return (
     <>
       <h1>내정보 - {settingMenu.menu_kr} 페이지</h1>
-
       <Image
         src={`/images/${settingMenu.image}`}
         alt={settingMenu.menu_kr}
