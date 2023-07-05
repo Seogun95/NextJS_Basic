@@ -26,6 +26,18 @@ const nextConfig = {
       },
     ];
   },
+  async rewrites() {
+    return [
+      {
+        source: '/seogun',
+        destination: '/test/about/seogun',
+      },
+      {
+        source: '/item/:slug',
+        destination: '/settings/:slug',
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;
