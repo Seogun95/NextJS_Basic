@@ -1,6 +1,9 @@
 import NotFound from '@/app/not-found';
 import { getSettingMenu, getSettingMenus } from '@/service/settingMenu';
 import { Metadata } from 'next';
+import Image from 'next/image';
+import styles from './page.module.css';
+
 interface SettingProps {
   params: {
     slug: string;
@@ -18,7 +21,20 @@ export default async function SettingDetail({
   if (!settingMenu) {
     return <NotFound />;
   }
-  return <h1>내정보 - {settingMenu.menu_kr} 페이지</h1>;
+  return (
+    <>
+      <h1>내정보 - {settingMenu.menu_kr} 페이지</h1>
+
+      <Image
+        src={`/images/${settingMenu.image}`}
+        alt={settingMenu.menu_kr}
+        width="300"
+        height="200"
+        placeholder="blur"
+        blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8Xw8AAoMBgDTD2qgAAAAASUVORK5CYII="
+      />
+    </>
+  );
 }
 
 // TODO: 메타데이터 동적 라우트 설정

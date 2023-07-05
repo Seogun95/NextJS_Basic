@@ -6,6 +6,7 @@ export interface ISettings {
   menu_eng: string;
   menu_kr: string;
   needPW: boolean;
+  image: string;
 }
 
 export async function getSettingMenus(): Promise<ISettings[]> {

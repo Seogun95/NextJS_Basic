@@ -3,8 +3,6 @@ import Link from 'next/link';
 import RandomArticle from '@/components/(settings)/RandomArticle';
 
 export default async function SettingHome() {
-  throw new Error('에러발생!');
-
   const settings = await getSettingMenus();
   return (
     <>

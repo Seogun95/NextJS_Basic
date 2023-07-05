@@ -3,24 +3,28 @@
     "id": "123",
     "menu_eng": "mypage",
     "menu_kr": "마이페이지",
-    "needPW": true
+    "needPW": true,
+    "image": "mypage.jpg"
   },
   {
     "id": "124",
     "menu_eng": "cart",
     "menu_kr": "장바구니",
-    "needPW": false
+    "needPW": false,
+    "image": "cart.jpg"
   },
   {
     "id": "125",
     "menu_eng": "alarm",
     "menu_kr": "알림",
-    "needPW": false
+    "needPW": false,
+    "image": "alarm.jpg"
   },
   {
     "id": "126",
     "menu_eng": "security",
     "menu_kr": "보안",
-    "needPW": true
+    "needPW": true,
+    "image": "security.jpg"
   }
 ]
