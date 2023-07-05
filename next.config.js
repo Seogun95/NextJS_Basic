@@ -12,6 +12,20 @@ const nextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: '/settings/deleted_page',
+        destination: '/settings',
+        permanent: true,
+      },
+      {
+        source: '/settings/block_page',
+        destination: '/settings',
+        permanent: false,
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;
