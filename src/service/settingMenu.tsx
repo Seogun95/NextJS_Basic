@@ -9,7 +9,6 @@ export interface ISettings {
 }
 
 export async function getSettingMenus(): Promise<ISettings[]> {
-  for (let i = 0; i < 10000000000; i++) {}
   const filePath = path.join(process.cwd(), 'data', 'settings.json');
   const data = await fs.readFile(filePath, 'utf-8');
   return JSON.parse(data);
