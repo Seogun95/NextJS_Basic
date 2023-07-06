@@ -7,7 +7,7 @@ export default function Counter() {
     setCount(prev => prev + 1);
   };
   const onCounterMinusHandler = () => {
-    setCount(prev => prev + 1);
+    setCount(prev => prev - 1);
   };
   return (
     <>
