@@ -3,6 +3,8 @@ import { getSettingMenu, getSettingMenus } from '@/service/settingMenu';
 import { Metadata } from 'next';
 import Image from 'next/image';
 import styles from './page.module.css';
+import { redirect } from 'next/navigation';
+import RedirectBtn from '@/components/(settings)/RedirectBtn';
 
 interface SettingProps {
   params: {
@@ -19,8 +21,9 @@ export default async function SettingDetail({
   const settingMenu = await getSettingMenu(slug);
 
   if (!settingMenu) {
-    return <NotFound />;
+    redirect('/');
   }
+
   return (
     <>
       <h1>내정보 - {settingMenu.menu_kr} 페이지</h1>
@@ -32,6 +35,7 @@ export default async function SettingDetail({
         placeholder="blur"
         blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8Xw8AAoMBgDTD2qgAAAAASUVORK5CYII="
       />
+      <RedirectBtn />
     </>
   );
 }
